@@ -657,6 +657,7 @@ require([
         }
 
         //collapse legend on load if small screen (saves real estate)
+        
         if ( $(window).width() < 767) {
             $('#legendCollapse').addClass('collapse');
         }
