@@ -20,7 +20,7 @@ run `npm install` AND `bower install` to get dependencies after first cloning
 
 ## Deployment
 
-Deploy to AWS S3 bucket glcwra.wim.usgs.gov, LORA directory
+Deploy to AWS S3 bucket glcwra.wim.usgs.gov, UPRA directory
 
 ## Built With
 

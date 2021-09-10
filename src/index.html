@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LORA</title>
+        <title>UPRA</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
@@ -76,9 +76,9 @@
               </button>
               <a class="navbar-brand" href="http://usgs.gov">
                   <img id="usgsLogo" alt="USGS logo" height="38px" src="images/USGS_ID_white.png">
-                  <!--<span class='hidden-xs' style='font-size:20px;display:inline-block;'>&nbsp;&nbsp;Lake Ontario Restoration Assessment (LORA)</span>-->
+                  <!--<span class='hidden-xs' style='font-size:20px;display:inline-block;'>&nbsp;&nbsp;Upper Peninsula Restoration Assessment (UPRA)</span>-->
               </a>
-              <p class="navbar-text hidden-xs navbar-title">Lake Ontario Restoration Assessment</p>
+              <p class="navbar-text hidden-xs navbar-title">Upper Peninsula Restoration Assessment</p>
 
           </div>
 
@@ -130,7 +130,7 @@
                 <div class="modal-header">
                     <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
                     <!--<h4 class="modal-title">{Event Name} Data Viewer</h4>-->
-                    <h4>Lake Ontario Restoration Assessment Web App</h4><i class="fa fa-exclamation-triangle fa-lg"></i> Please read the following message before continuing.
+                    <h4>Upper Peninsula Restoration Assessment Web App</h4><i class="fa fa-exclamation-triangle fa-lg"></i> Please read the following message before continuing.
                 </div>
                 <div class="modal-body">
                     <!--<h4>Welcome to the {Event Name} Data Viewer</h4><b>Please read the following message before continuing.</b>-->
@@ -151,7 +151,7 @@
           <div class="modal-content">
               <div class="modal-header">
                   <button class="close" type="button" data-dismiss="modal" aria-hidden="true" style="color:gray;">&times;</button>
-                  <h4 class="modal-title">Lake Ontario Restoration Assessment (LORA)</h4>
+                  <h4 class="modal-title">Upper Peninsula Restoration Assessment (UPRA)</h4>
               </div>
               <div id="aboutModalBody" class="modal-body">
                   <ul class="nav nav-tabs" id="aboutModalTabs">
@@ -164,11 +164,11 @@
                       <div role="tabpanel" class="tab-pane active about-tab-content" id="aboutTabPane"></br>
 
                           <div class="wetland-pic tabText">
-                              <p>The Lake Ontario Restoration Assessment (LORA) model was developed by the USGS Upper Midwest Science Center based on methods provided by investigators in the Environmental Studies Program at the New College of Florida in
-                                  Sarasota, Florida and the USGS - Great Lakes Science Center in Ann Arbor, Michigan. The web mapping application for interfacing with the LORA model was created
+                              <p>The Upper Peninsula Restoration Assessment (UPRA) model was developed by the USGS Upper Midwest Science Center based on methods provided by investigators in the Environmental Studies Program at the New College of Florida in
+                                  Sarasota, Florida and the USGS - Great Lakes Science Center in Ann Arbor, Michigan. The web mapping application for interfacing with the UPRA model was created
                                   by developers on the Web Informatics and Mapping team.</p>
 
-                              <p>The development of the LORA has been supported by the Great Lakes Restoration Initiative, the Upper Midwest and Great Lakes Landscape Conservation Cooperative and the University of Michigan Water Center.</p>
+                              <p>The development of the UPRA has been supported by the Great Lakes Restoration Initiative, the Upper Midwest and Great Lakes Landscape Conservation Cooperative and the University of Michigan Water Center.</p>
 
 
                           </div>
@@ -184,27 +184,27 @@
 
                       </div>
                       <div role="tabpanel" class="tab-pane tabText" id="metadataTabPane"></br>
-                          <b>Below is a list of LORA layers with their descriptions and sources. For complete metadata, please visit the <a href='https://www.sciencebase.gov/catalog/item/57f406b1e4b0bc0bec032678' target='_blank'>USGS ScienceBase catalog item for GLCWRA <i class="fa fa-external-link" aria-hidden="true"></i></a></b><br />
+                          <b>Below is a list of UPRA layers with their descriptions and sources. For complete metadata, please visit the <a href='https://www.sciencebase.gov/catalog/item/57f406b1e4b0bc0bec032678' target='_blank'>USGS ScienceBase catalog item for GLCWRA <i class="fa fa-external-link" aria-hidden="true"></i></a></b><br />
                           <br />
-                          <b>LORA Composite Index:</b> The Composite Index is the result of combining the source parameters through an ecological model. This model weights each of the parameters individually and runs them through an equation to create the composite index. Parameters 1-4 contribute to the index, while 5 and 6 detract from it. Any areas covered by Parameter 0 are excluded from the composite index.
+                          <b>UPRA Composite Index:</b> The Composite Index is the result of combining the source parameters through an ecological model. This model weights each of the parameters individually and runs them through an equation to create the composite index. Parameters 1-4 contribute to the index, while 5 and 6 detract from it. Any areas covered by Parameter 0 are excluded from the composite index.
 
                           To better understand the ecological model and to see the source code, go to New College of Florida's Github: https://github.com/newgaminfo/GLCWRA-Code <br />
                           Source: USGS Upper Midwest Science Center <br />
                           <br />
-                          <b>Study Area Boundary:</b> The study area dataset was created from the DEM dataset. The inland side of the study area was defined by taking the New York shoreline of Lake Ontario, including all land within 1 meter of elevation of the lake, and then include an additional 1 kilometer buffer. The lakeward side of the study area is simply a 2 kilometer buffer. <br />
+                          <b>Study Area Boundary:</b> The study area dataset was created from the DEM dataset. The inland side of the study area was defined by taking the New York shoreline of Upper Peninsula, including all land within 1 meter of elevation of the lake, and then include an additional 1 kilometer buffer. The lakeward side of the study area is simply a 2 kilometer buffer. <br />
                           Source: USGS Upper Midwest Science Center <br />
                           <br />
                           <span style="font-size: larger"><b>Parameters Group</b></span><br />
                           <b>Water Mask (P0):</b> The water parameter was used to remove areas of open and deep water from consideration in the composite index because they are too deep to support a wetland habitat and are unlikely to be restored. <br />
                           Source: USGS Upper Midwest Science Center <br />
                           <br />
-                          <b>Hydroperiod (P1):</b> The hydroperiod dataset was derived from the Lake Ontario DEM and Lake Ontario water level records collected at the NOAA station in Oswego, New York. The hydroperiod data was used to identify areas which are more likely to be flooded as these areas are better suited to support a wetland habitat.<br />
+                          <b>Hydroperiod (P1):</b> The hydroperiod dataset was derived from the Upper Peninsula DEM and Upper Peninsula water level records collected at the NOAA station in Oswego, New York. The hydroperiod data was used to identify areas which are more likely to be flooded as these areas are better suited to support a wetland habitat.<br />
                           Source: USGS Upper Midwest Science Center <br />
                           <br />
                           <b>Wetland Soils (P2):</b> The wetland soil data were used to identify areas that have hydric soils suitable for wetland restoration. <br />
                           Source: USGS Upper Midwest Science Center <br />
                           <br />
-                          <b>Flowline (P3):</b> The flowline dataset was used to identify areas that are hydrologically connected to the lake because these areas are more likely to be within the hydroperiod (inundation zone) of Lake Ontario. <br />
+                          <b>Flowline (P3):</b> The flowline dataset was used to identify areas that are hydrologically connected to the lake because these areas are more likely to be within the hydroperiod (inundation zone) of Upper Peninsula. <br />
                           Source: USGS Upper Midwest Science Center <br />
                           <br />
                           <b>Conserved Lands (P4):</b> The protected area data are composed of parks, Federal Waterfowl Production Areas, State and county wildlife areas and preserves. These areas are combined and buffered to create a layer representing protected areas and the regions surrounding them. Protected areas are better for restoration because they are protected by the U.S. Government and are considered to have an increased restoration likelihood. <br />
@@ -275,7 +275,7 @@
 
               <div class="modal-footer">
                   <p style="color:black; margin-left:35px;text-align:left">
-                      For more information about the LORA web application please contact <a href="http://wim.usgs.gov/" target="_blank"><img src="images/wimvectorxs.png" id="wim_logo"></a> or visit Contact tab for project info.
+                      For more information about the UPRA web application please contact <a href="http://wim.usgs.gov/" target="_blank"><img src="images/wimvectorxs.png" id="wim_logo"></a> or visit Contact tab for project info.
                   </p>
                   <button class=" btn btn-default close" type="button" data-dismiss="modal" aria-hidden="true" style="color:gray;" class="btn btn-default">Close</button>
               </div>
@@ -430,13 +430,13 @@
                           <label>Restoration Model</label>
                       </div>
                       <!--<div class="btn-group-vertical lyrTogDiv" style="cursor: pointer;" data-toggle="buttons">-->
-                      <!--<button id="normalized" type="button" class="btn btn-default lyrTog" aria-pressed="true" style="font-weight: bold;text-align: left"><i class="checkBoxIcon fa fa-square-o"></i>&nbsp;&nbsp;LORA Composite Index<span id="opacitynormalized" class="glyphspan glyphicon glyphicon-adjust pull-right opacity"></span></button>-->
+                      <!--<button id="normalized" type="button" class="btn btn-default lyrTog" aria-pressed="true" style="font-weight: bold;text-align: left"><i class="checkBoxIcon fa fa-square-o"></i>&nbsp;&nbsp;UPRA Composite Index<span id="opacitynormalized" class="glyphspan glyphicon glyphicon-adjust pull-right opacity"></span></button>-->
                       <!--</div>-->
                       <div class="container-fluid container-btn">
                           <div class="row">
                               <div class="col-xs-9 col-btn">
                                   <div class="btn-group-vertical lyrTogDiv" style="cursor: pointer;" data-toggle="buttons">
-                                      <button id="normalized" type="button" class="btn btn-default lyrTog" aria-pressed="true" style="font-weight: bold;text-align: left"><i class="checkBoxIcon fa fa-square-o"></i>&nbsp;&nbsp;LORA Composite Index</button>
+                                      <button id="normalized" type="button" class="btn btn-default lyrTog" aria-pressed="true" style="font-weight: bold;text-align: left"><i class="checkBoxIcon fa fa-square-o"></i>&nbsp;&nbsp;UPRA Composite Index</button>
                                   </div>
                               </div>
                               <div class="col-xs-3 col-btn col-btn-extras" style="height: 100%">
@@ -750,7 +750,7 @@
               </div>
 
               <div id="sidebar-ornament" class="wetland-pic sidebar-pic-content">
-                  <p>Play around! This is an interactive web mapping application to help you make decisions about restoring coastal wetlands in Lake Ontario.
+                  <p>Play around! This is an interactive web mapping application to help you make decisions about restoring coastal wetlands in Upper Peninsula.
                   Turn layers on & off to understand how they relate to restoration decisions, scale in and out, change basemaps, and use the Area Summary Tool if you are interested in a particular area.</p>
 
                   <p>The Great Lakes Restoration Initiative and the Upper Midwest and Great Lakes Landscape Conservation Cooperative supported the development of this website.</p>
