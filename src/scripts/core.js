@@ -4,7 +4,7 @@
 /**
  * Created by bdraper on 4/3/2015.
  */
-var lora = lora || {
+var upra = upra || {
         bookmarks: [
             //{"id":"ottawa-nwr", "name":"Ottawa NWR", "userCreated": false, spatialReference:{"wkid":102100}, "xmax":-9253627.864758775,"xmin":-9268896.161158718,"ymax":5109457.058192252,"ymin":5099759.110228584}
         ],
@@ -105,7 +105,7 @@ require([
 
     map = new Map('mapDiv', {
         basemap: 'gray',
-        center: lora.globals.mapCenter,
+        center: upra.globals.mapCenter,
         spatialReference: 26917,
         zoom: 8,
         logo: false,
@@ -150,7 +150,7 @@ require([
         console.log('cookie: ', bmJSON, bmJSON.length);
         var bmarks = dojo.fromJson(bmJSON);
         array.forEach(bmarks, function(b) {
-            lora.bookmarks.push(b);
+            upra.bookmarks.push(b);
         });
     } else {
         console.log('no stored bookmarks...');
@@ -160,12 +160,12 @@ require([
         if ( useLocalStorage ) {
             //create new array with only user created bookmarks, to save to local storage.
             var appBMs = [];
-            array.forEach(lora.bookmarks, function (bm){
+            array.forEach(upra.bookmarks, function (bm){
                 if (bm.userCreated === false){
                     appBMs.push(bm.id);
                 }
             });
-            var bmStorageArray = lora.bookmarks.slice();
+            var bmStorageArray = upra.bookmarks.slice();
             for(var i = 0; i < bmStorageArray.length; i++) {
                 var obj = bmStorageArray[i];
 
@@ -180,7 +180,7 @@ require([
             window.localStorage.setItem(storageName, x);
         } else {
             var exp = 7; // number of days to persist the cookie
-            cookie(storageName, dojo.toJson(lora.bookmarks), {
+            cookie(storageName, dojo.toJson(upra.bookmarks), {
                 expires: exp
             });
         }
@@ -196,17 +196,17 @@ require([
         }
         //creates list of user defined bookmarks
         var userBMs = [];
-        array.forEach(lora.bookmarks, function (bm){
+        array.forEach(upra.bookmarks, function (bm){
             if (bm.userCreated === true){
                 userBMs.push(bm.id);
             }
         });
-        //removes user bookmarks from the lora.bookmarks array
-        for(var i = 0; i < lora.bookmarks.length; i++) {
-            var obj = lora.bookmarks[i];
+        //removes user bookmarks from the upra.bookmarks array
+        for(var i = 0; i < upra.bookmarks.length; i++) {
+            var obj = upra.bookmarks[i];
 
             if(userBMs.indexOf(obj.id) !== -1) {
-                lora.bookmarks.splice(i, 1);
+                upra.bookmarks.splice(i, 1);
                 i--;
                 //!!!IMPORTANT:If adding another permanent bookmark (non-user defined) may need another i decrement.
             }
@@ -267,7 +267,7 @@ require([
         var encodedShareQueryString = "%3Fxmax=" + currentMapExtent.xmax.toString() + "%26xmin=" + currentMapExtent.xmin.toString() + "%26ymax=" + currentMapExtent.ymax.toString() + "%26ymin=" + currentMapExtent.ymin.toString();
         //var cleanURL = document.location.href;
         //below line for local testing only. replace with above line for production
-        var cleanURL = "https://glcwra.wim.usgs.gov/LORA/";
+        var cleanURL = "https://glcwra.wim.usgs.gov/UPRA/";
         var shareURL = cleanURL + shareQueryString;
         var encodedShareURL = cleanURL + encodedShareQueryString;
         console.log("Share URL is:" + shareURL);
@@ -514,16 +514,16 @@ require([
         //if user does not provide title, use default. otherwise apply user title
         if (userTitle === "") {
             template.layoutOptions = {
-                "titleText": "Lake Ontario Restoration Assessment",
-                "authorText" : "Lake Ontario Restoration Assessment (LORA)",
-                "copyrightText": "This page was produced by the LORA web application at glcwra.wim.usgs.gov/LORA",
+                "titleText": "Upper Peninsula Restoration Assessment",
+                "authorText" : "Upper Peninsula Restoration Assessment (UPRA)",
+                "copyrightText": "This page was produced by the UPRA web application at glcwra.wim.usgs.gov/UPRA",
                 "legendLayers": [legendLayer]
             };
         } else {
             template.layoutOptions = {
                 "titleText": userTitle,
-                "authorText" : "Lake Ontario Restoration Assessment (LORA)",
-                "copyrightText": "This page was produced by the LORA web application at glcwra.wim.usgs.gov/LORA",
+                "authorText" : "Upper Peninsula Restoration Assessment (UPRA)",
+                "copyrightText": "This page was produced by the UPRA web application at glcwra.wim.usgs.gov/UPRA",
                 "legendLayers": [legendLayer]
             };
         }
@@ -562,7 +562,7 @@ require([
             currentMapExtentJSON.name = userBookmarkTitle;
             currentMapExtentJSON.id = userBookmarkID;
             currentMapExtentJSON.userCreated = true;
-            lora.bookmarks.push(currentMapExtentJSON);
+            upra.bookmarks.push(currentMapExtentJSON);
 
             var bmDeleteID = userBookmarkID + "_delete";
             var userBookmarkButton = $('<tr id="'+ userBookmarkID +'"><td  class="bookmarkTitle td-bm">'+ userBookmarkTitle +'</td><td class="text-right text-nowrap"> <button id="'+ bmDeleteID + '" class="btn btn-xs btn-warning bookmarkDelete" data-toggle="tooltip" data-placement="top" > <span class="glyphicon glyphicon-remove"></span> </button> </td> </tr>');
@@ -580,11 +580,11 @@ require([
                 onConfirm: function() {
                     $("#" + userBookmarkID).remove();
 
-                    for(var i = 0; i < lora.bookmarks.length; i++) {
-                        var obj = lora.bookmarks[i];
+                    for(var i = 0; i < upra.bookmarks.length; i++) {
+                        var obj = upra.bookmarks[i];
 
                         if(userBookmarkID.indexOf(obj.id) !== -1) {
-                            lora.bookmarks.splice(i, 1);
+                            upra.bookmarks.splice(i, 1);
                         }
                     }
                     refreshBookmarks();
@@ -657,6 +657,7 @@ require([
         }
 
         //collapse legend on load if small screen (saves real estate)
+        
         if ( $(window).width() < 767) {
             $('#legendCollapse').addClass('collapse');
         }
@@ -734,7 +735,7 @@ require([
                 $("." + $(this).attr("data-hide")).hide();
             });
         });
-        lora.bookmarks.forEach(function(bm) {
+        upra.bookmarks.forEach(function(bm) {
             if (bm.userCreated === false) {
                 var bookmarkButton = $('<tr id="'+ bm.id +'"><td class="bookmarkTitle td-bm">'+ bm.name +'</td><td class="text-right text-nowrap"></td> </tr>');
                 $("#bookmarkList").append(bookmarkButton);
@@ -752,11 +753,11 @@ require([
                     onConfirm: function() {
                         $("#" + bm.id).remove();
 
-                        for(var i = 0; i < lora.bookmarks.length; i++) {
-                            var obj = lora.bookmarks[i];
+                        for(var i = 0; i < upra.bookmarks.length; i++) {
+                            var obj = upra.bookmarks[i];
 
                             if(bm.id.indexOf(obj.id) !== -1) {
-                                lora.bookmarks.splice(i, 1);
+                                upra.bookmarks.splice(i, 1);
                             }
                         }
                         refreshBookmarks();
@@ -769,7 +770,7 @@ require([
         //need this style onclick because user bookmark buttons are appended to dom and event delegation blah blah
         $("body").on('click', '.td-bm' ,function (){
             var bookmarkID = this.parentNode.id;
-            lora.bookmarks.forEach(function(bookmark) {
+            upra.bookmarks.forEach(function(bookmark) {
                 if (bookmark.id == bookmarkID){
                     var bookmarkExtent = new Extent(bookmark.xmin, bookmark.ymin, bookmark.xmax, bookmark.ymax, new SpatialReference(bookmark.spatialReference) );
                     //var extent = new Extent(-122.68,45.53,-122.45,45.60, new SpatialReference({ wkid:4326 }));
@@ -859,7 +860,7 @@ require([
         const mapServiceRoot= "https://gis.wim.usgs.gov/arcgis/rest/services/GLCWRA/";
         const geomService = new GeometryService("https://gis.wim.usgs.gov/arcgis/rest/services/Utilities/Geometry/GeometryServer");
 
-      //  const normRestorationIndexLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "normalized", visible:true} );
+      //  const normRestorationIndexLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "normalized", visible:true} );
       //  normRestorationIndexLayer.setVisibleLayers([1]);
       //  mapLayers.push(normRestorationIndexLayer);
       //  mapLayerIds.push(normRestorationIndexLayer.id);
@@ -867,21 +868,21 @@ require([
       //  normRestorationIndexLayer.inLegendLayers = true;
         
 
-        const dikesLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "dikes", visible:false, minScale:100000} );
+        const dikesLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "dikes", visible:false, minScale:100000} );
         dikesLayer.setVisibleLayers([3]);
         mapLayers.push(dikesLayer);
         mapLayerIds.push(dikesLayer.id);
         dikesLayer.inLegendLayers = false;
         //legendLayers.push ({layer:dikesLayer, title: "Dikes"});
 
-        const degFlowlinesLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "degFlowlines", visible:false, minScale:100000} );
+        const degFlowlinesLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "degFlowlines", visible:false, minScale:100000} );
         degFlowlinesLayer.setVisibleLayers([2]);
         mapLayers.push(degFlowlinesLayer);
         mapLayerIds.push(degFlowlinesLayer.id);
         degFlowlinesLayer.inLegendLayers = false;
         //legendLayers.push ({layer:degFlowlinesLayer, title: "Degree flowlines"});
 
-        const culvertsLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "culverts", visible:false, minScale:100000} );
+        const culvertsLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "culverts", visible:false, minScale:100000} );
         culvertsLayer.setVisibleLayers([1]);
         mapLayers.push(culvertsLayer);
         mapLayerIds.push(culvertsLayer.id);
@@ -935,7 +936,7 @@ require([
             customAreaParams = { "inputPoly":null };
             customAreaFeatureArray = [];
         });
-        zonalStatsGP = new Geoprocessor("https://gis.wim.usgs.gov/arcgis/rest/services/GLCWRA/LORAZonalStats/GPServer/LORAZonalStats");
+        zonalStatsGP = new Geoprocessor("https://gis.wim.usgs.gov/arcgis/rest/services/GLCWRA/UPRAZonalStats/GPServer/UPRAZonalStats");
         zonalStatsGP.setOutputSpatialReference({wkid:102100});
         zonalStatsGP.on("execute-complete", displayCustomStatsResults);
         $('#calculateStats').click(function () {
@@ -994,21 +995,21 @@ require([
             }
         }
  
-        const normRestorationIndexLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "normalized", visible:true} );
+        const normRestorationIndexLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "normalized", visible:true} );
         normRestorationIndexLayer.setVisibleLayers([13]);
         mapLayers.push(normRestorationIndexLayer);
         mapLayerIds.push(normRestorationIndexLayer.id);
         legendLayers.push({layer:normRestorationIndexLayer , title:" "});
         normRestorationIndexLayer.inLegendLayers = true;
 
-        const studyAreaLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "studyArea", visible:true} );
+        const studyAreaLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "studyArea", visible:true} );
         studyAreaLayer.setVisibleLayers([12]);
         mapLayers.push(studyAreaLayer);
         mapLayerIds.push(studyAreaLayer.id);
         legendLayers.push({layer:studyAreaLayer , title:" "});
         studyAreaLayer.inLegendLayers = true; 
 
-        const waterMaskLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "waterMask", visible:true, opacity: 0.75} );
+        const waterMaskLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "waterMask", visible:true, opacity: 0.75} );
         waterMaskLayer.setVisibleLayers([5]);
         mapLayers.push(waterMaskLayer);
         mapLayerIds.push(waterMaskLayer.id);
@@ -1049,49 +1050,49 @@ require([
         ////end reference layers////////////////////////////////////////
 
         ///parameters group
-        const landuseLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "landuse", visible:false} );
+        const landuseLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "landuse", visible:false} );
         landuseLayer.setVisibleLayers([11]);
         mapLayers.push(landuseLayer );
         mapLayerIds.push(landuseLayer.id);
         landuseLayer.inLegendLayers = false;
         //legendLayers.push ({layer:landuseLayer , title: "P6 - Landuse"});
 
-        const imperviousSurfacesLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "imperviousSurfaces", visible:false} );
+        const imperviousSurfacesLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "imperviousSurfaces", visible:false} );
         imperviousSurfacesLayer.setVisibleLayers([10]);
         mapLayers.push(imperviousSurfacesLayer);
         mapLayerIds.push(imperviousSurfacesLayer.id);
         imperviousSurfacesLayer.inLegendLayers = false;
         //legendLayers.push ({layer:imperviousSurfacesLayer, title: "P5 - Impervious Surfaces"});
 
-        const conservedLandsLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "conservedLands", visible:false} );
+        const conservedLandsLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "conservedLands", visible:false} );
         conservedLandsLayer.setVisibleLayers([9]);
         mapLayers.push(conservedLandsLayer);
         mapLayerIds.push(conservedLandsLayer.id);
         conservedLandsLayer.inLegendLayers = false;
         //legendLayers.push ({layer:conservedLandsLayer, title: "P4 - Conserved Lands"});
 
-        const flowlineLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "flowline", visible:false} );
+        const flowlineLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "flowline", visible:false} );
         flowlineLayer.setVisibleLayers([8]);
         mapLayers.push(flowlineLayer);
         mapLayerIds.push(flowlineLayer.id);
         flowlineLayer.inLegendLayers = false;
         //legendLayers.push ({layer:flowlineLayer, title: "P3 - Flowline"});
 
-        const wetsoilsLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "wetsoils", visible:false} );
+        const wetsoilsLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "wetsoils", visible:false} );
         wetsoilsLayer.setVisibleLayers([7]);
         mapLayers.push(wetsoilsLayer);
         mapLayerIds.push(wetsoilsLayer.id);
         wetsoilsLayer.inLegendLayers = false;
         //legendLayers.push ({layer:wetsoilsLayer, title: "P2 - Wetsoils"});
 
-        const hydroperiodLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "hydroperiod", visible:false} );
+        const hydroperiodLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "hydroperiod", visible:false} );
         hydroperiodLayer.setVisibleLayers([6]);
         mapLayers.push(hydroperiodLayer);
         mapLayerIds.push(hydroperiodLayer.id);
         hydroperiodLayer.inLegendLayers = false;
         //legendLayers.push ({layer:hydroperiodLayer, title: "P1 - Hydroperiod"});
 
-      //  const waterMaskLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "LORA/MapServer", {id: "waterMask", visible:true, opacity: 0.75} );
+      //  const waterMaskLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "waterMask", visible:true, opacity: 0.75} );
       //  waterMaskLayer.setVisibleLayers([2]);
       //  mapLayers.push(waterMaskLayer);
       //  mapLayerIds.push(waterMaskLayer.id);
@@ -1211,7 +1212,7 @@ require([
                 //logic to zoom to layer center
                 //var layerCenter = map.getLayer(layerToChange).fullExtent.getCenter();
                 map.centerAt(layerCenter);
-                var dataCenter = new Point(lora.globals.mapCenter, new SpatialReference({wkid:4326}));
+                var dataCenter = new Point(upra.globals.mapCenter, new SpatialReference({wkid:4326}));
                 map.centerAt(dataCenter);
              });
 
@@ -1293,7 +1294,7 @@ require([
             gtag('event', 'click', {'event_category': 'Map Button','event_label': 'Default Extent'});
         });
         $('#normalized').click(function(){
-            gtag('event', 'click', {'event_category': 'Layer - Restoration Model','event_label': 'LORA Composite Index'});
+            gtag('event', 'click', {'event_category': 'Layer - Restoration Model','event_label': 'UPRA Composite Index'});
         });
         $('#waterMask').click(function(){
             gtag('event', 'click', {'event_category': 'Layer - Parameters','event_label': 'water Mask (P0)'});

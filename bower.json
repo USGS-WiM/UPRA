@@ -1,6 +1,6 @@
 {
-  "name": "lora",
-  "description": "lake ontario restoration assessment web application",
+  "name": "upra",
+  "description": "upper peninsula restoration assessment web application",
   "version": "v1.0.0-alpha.1",
   "dependencies": {
     "jquery": "^3.3.1",

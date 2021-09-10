@@ -1,8 +1,8 @@
 [
   {
-    "name": "LORA",
+    "name": "UPRA",
     "organization": "U.S. Geological Survey",
-    "description": "Web interface for the Lake Ontario Restoration Area of the Great Lakes Coastal Restoration Assessment project",
+    "description": "Web interface for the Upper Peninsula Restoration Area of the Great Lakes Coastal Restoration Assessment project",
     "version": "v1.0.0-alpha.1",
     "status": "Development",
 
