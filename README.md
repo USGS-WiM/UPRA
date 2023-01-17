@@ -44,7 +44,7 @@ First push tags to origin: `git push origin --tags` then, after pull request, up
 
 - **[Blake Draper](https://www.usgs.gov/staff-profiles/blake-a-draper)** - _Lead Developer_ - [USGS Web Informatics & Mapping](https://wim.usgs.gov/)
 
-See also the list of [contributors](https://github.com/USGS-WiM/ORA/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/USGS-WiM/UPRA/graphs/contributors) who participated in this project.
 
 ## License
 
