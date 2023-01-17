@@ -1277,7 +1277,7 @@ require([
             customAreaParams = { "inputPoly":null };
             customAreaFeatureArray = [];
         });
-        zonalStatsGP = new Geoprocessor("https://gis1.wim.usgs.gov/server/rest/services/GLCWRA/LORAZonalStats/GPServer/LORAZonalStats");
+        zonalStatsGP = new Geoprocessor("https://gis1.wim.usgs.gov/server/rest/services/GLCWRA/UPRAZonalStats/GPServer/UPRAZonalStat");
         zonalStatsGP.setOutputSpatialReference({wkid:102100});
         zonalStatsGP.on("execute-complete", displayCustomStatsResults);
         $('#calculateStats').click(function () {
