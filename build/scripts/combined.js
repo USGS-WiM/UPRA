@@ -446,7 +446,7 @@ require([
     domClass.add(popup.domNode);
 
     map = new Map('mapDiv', {
-        basemap: 'osm', //gray
+        basemap: 'gray', //osm
         center: upra.globals.mapCenter,
         spatialReference: 26917,
         zoom: 9,
@@ -1350,7 +1350,7 @@ require([
         legendLayers.push({layer:studyAreaLayer , title:" "});
         studyAreaLayer.inLegendLayers = true; 
 
-        const waterMaskLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "waterMask", visible:true, opacity: 0.75} );
+        const waterMaskLayer =  new ArcGISDynamicMapServiceLayer(mapServiceRoot + "UPRA/MapServer", {id: "waterMask", visible: false, opacity: 0.75} );
         waterMaskLayer.setVisibleLayers([5]);
         mapLayers.push(waterMaskLayer);
         mapLayerIds.push(waterMaskLayer.id);
