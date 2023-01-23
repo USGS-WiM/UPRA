@@ -446,7 +446,7 @@ require([
     domClass.add(popup.domNode);
 
     map = new Map('mapDiv', {
-        basemap: 'osm', //osm
+        basemap: 'gray', //osm
         center: upra.globals.mapCenter,
         spatialReference: 26917,
         zoom: 9,
