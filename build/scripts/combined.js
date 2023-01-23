@@ -446,7 +446,7 @@ require([
     domClass.add(popup.domNode);
 
     map = new Map('mapDiv', {
-        basemap: 'gray', //osm
+        basemap: 'osm', //osm
         center: upra.globals.mapCenter,
         spatialReference: 26917,
         zoom: 9,
@@ -1277,7 +1277,7 @@ require([
             customAreaParams = { "inputPoly":null };
             customAreaFeatureArray = [];
         });
-        zonalStatsGP = new Geoprocessor("https://gis1.wim.usgs.gov/server/rest/services/GLCWRA/UPRAZonalStats/GPServer/UPRAZonalStat");
+        zonalStatsGP = new Geoprocessor("https://gis1.wim.usgs.gov/server/rest/services/GLCWRA/UPRAZonalStat/GPServer/UPRAZonalStat");
         zonalStatsGP.setOutputSpatialReference({wkid:102100});
         zonalStatsGP.on("execute-complete", displayCustomStatsResults);
         $('#calculateStats').click(function () {
